@@ -1,1 +1,1 @@
-$("#main").append([yourname]);
+$("#main").append("Georgi Tsertsvadze");
