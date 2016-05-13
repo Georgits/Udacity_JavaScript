@@ -27,6 +27,16 @@ var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
 $("#header").append(formattedBioPic);
 
 
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+$("#header").append(formattedMobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+$("#header").append(formattedEmail);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.location);
+$("#header").append(formattedLocation);
+
+
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -42,9 +52,6 @@ $("#skills").append(formattedSkill);
 
 var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 $("#skills").append(formattedSkill);
-
-
-
 }
 
 
