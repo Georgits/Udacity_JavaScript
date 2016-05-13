@@ -13,8 +13,20 @@ var bio = {
 	"skills": [
 		"awesomennes", "programming", "js"
 		],
-	"bioPic": "C:/Users/Georgi/Desktop/CV/IMG_7430_15.jpg"
+	"location": "Bad Homburg",
+	"bioPic": "C:/Users/Georgi/Desktop/Georgi.JPG"
 }
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+$("#header").append(formattedName);
+
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header").append(formattedRole);
+
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
+$("#header").append(formattedBioPic);
+
+
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -30,8 +42,14 @@ $("#skills").append(formattedSkill);
 
 var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 $("#skills").append(formattedSkill);
+
+
+
 }
 
+
+//var formattedLocation = HTMLlocation.replace("%data%", bio.location);
+//$("#location").append(formattedLocation);
 
 var education = {
 	"schools": [
@@ -110,26 +128,73 @@ function displayWork() {
 	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
 	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
 	var formattedEmployerTitle = formattedEmployer+formattedTitle;
-	
 	$(".work-entry:last").append(formattedEmployerTitle);
-
+	
+	var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+	$(".work-entry:last").append(formattedLocation);
+	
 	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
 	$(".work-entry:last").append(formattedDates);
+
 	
 	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 	$(".work-entry:last").append(formattedDescription);
+	
 	}
 }
 
 displayWork();
 
+var projects = {
+	"projects": [
+	{
+		"title": "Project 1",
+		"dates": "XXXX-XXXX",
+		"description": "description of project 1",
+	"images": [
+		"C:/Users/Georgi/Desktop/Ekaterine.JPG", "C:/Users/Georgi/Desktop/Alexander.JPG"
+		]
+	},
+	{
+		"title": "Project 2",
+		"dates": "YYYY-YYYY",
+		"description": "description of project 2",
+	"images": [
+		"C:/Users/Georgi/Desktop/Sophie.JPG", "C:/Users/Georgi/Desktop/Nathalie.JPG"
+		]
+	}
+	]
+}
 
 projects.display = function () {
-	for ( project in projects.project) {
+	for ( project in projects.projects) {
 		$("#projects").append(HTMLprojectStart);
+	
+	var formattedTitle=HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+	$(".project-entry:last").append(formattedTitle);
+	
+	var formattedDates=HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+	$(".project-entry:last").append(formattedDates);
+	
+	var formattedDescription=HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+	$(".project-entry:last").append(formattedDescription);
+
+	if (projects.projects[project].images.length>0) {
+		for (image in projects.projects[project].images) {
+			var formattedImage=HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+			$(".project-entry:last").append(formattedImage);
+		}
 	}
-		
+	}
 }
+
+projects.display();
+
+
+
+$("#mapDiv").append(googleMap);
+
+
 /*
 funtion locationizer(work_obj) {
 	var locationArray = [];
@@ -153,29 +218,10 @@ function inName(name) {
 $("#main").append(internationalizeButton);
 */
 
-var projects = {
-	"projects": [
-	{
-		"title": "Project 1",
-		"dates": "XXXX-XXXX",
-		"description": "description of project 1",
-	"images": [
-		"image_11", "image_12"
-		]
-	},
-	{
-		"title": "Project 2",
-		"dates": "YYYY-YYYY",
-		"description": "description of project 2",
-	"images": [
-		"image_21", "image_22"
-		]
-	}
-	]
-}
 
 
 
+/*
 $(document).click(function(loc) {
 	var x = loc.pageX;
 	var y = loc.pageY;
@@ -183,7 +229,7 @@ $(document).click(function(loc) {
 	logClicks(x,y);
 });
 
-
+*/
 
 
 
