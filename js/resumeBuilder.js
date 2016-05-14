@@ -6,37 +6,29 @@ var bio = {
 		"address1": "Louisenstr. 70",
 		"address2": "61348 Bad Homburg",
 		"mobile": "0162-2630085",
-		"email": "georgits@yahoo.de"
+		"email": "georgits@yahoo.de",
+		"location": "Bad Homburg",
 		},
 	"age": 41,
 	"role": "Data Scientist",
 	"skills": [
 		"awesomennes", "programming", "js"
 		],
-	"location": "Bad Homburg",
 	"bioPic": "C:/Users/Georgi/Desktop/Georgi.JPG"
 }
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").append(formattedName);
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").append(formattedRole);
+$("#header").prepend(HTMLheaderRole.replace("%data%", bio.role));
+$("#header").prepend(HTMLheaderName.replace("%data%", bio.name));
 
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.bioPic);
-$("#header").append(formattedBioPic);
+$("#topContacts").append(HTMLmobile.replace("%data%", bio.contacts.mobile));
+$("#topContacts").append(HTMLemail.replace("%data%", bio.contacts.email));
+$("#topContacts").append(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+$("#topContacts").append(HTMLgithub.replace("%data%", bio.contacts.github));
+$("#topContacts").append(HTMLlocation.replace("%data%", bio.contacts.location));
 
-
-var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-$("#header").append(formattedMobile);
-
-var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-$("#header").append(formattedEmail);
-
-var formattedLocation = HTMLlocation.replace("%data%", bio.location);
-$("#header").append(formattedLocation);
-
-
+$("#header").append(HTMLbioPic.replace("%data%", bio.bioPic));
+$("#header").append(HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage));
 
 if (bio.skills.length > 0) {
 	$("#header").append(HTMLskillsStart);
@@ -54,9 +46,6 @@ var formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
 $("#skills").append(formattedSkill);
 }
 
-
-//var formattedLocation = HTMLlocation.replace("%data%", bio.location);
-//$("#location").append(formattedLocation);
 
 var education = {
 	"schools": [
