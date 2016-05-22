@@ -148,7 +148,7 @@ var projects = {
 		"dates": "XXXX-XXXX",
 		"description": "description of project 1",
 	"images": [
-		"C:/Users/Georgi/Desktop/Ekaterine.JPG", "C:/Users/Georgi/Desktop/Alexander.JPG"
+		"images/Ekaterine.JPG", "images/Alexander.JPG"
 		]
 	},
 	{
@@ -156,7 +156,7 @@ var projects = {
 		"dates": "YYYY-YYYY",
 		"description": "description of project 2",
 	"images": [
-		"C:/Users/Georgi/Desktop/Sophie.JPG", "C:/Users/Georgi/Desktop/Nathalie.JPG"
+		"images/Sophie.JPG", "images/Nathalie.JPG"
 		]
 	}
 	]
